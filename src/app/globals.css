@@ -108,6 +108,9 @@
 	--color-neutral-700: var(--neutral-700);
 	--color-neutral-800: var(--neutral-800);
 	--color-neutral-900: var(--neutral-900);
+
+	--font-maven-pro: 'Maven Pro', sans-serif;
+	--font-noto-serif-bengali: 'Noto Serif Bengali', serif;
 }
 
 :root {
@@ -321,7 +324,16 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground font-maven-pro;
+	}
+}
+
+@layer utilities {
+	.font-maven-pro {
+		font-family: var(--font-maven-pro);
+	}
+	.font-noto-serif-bengali {
+		font-family: var(--font-noto-serif-bengali);
 	}
 }
 

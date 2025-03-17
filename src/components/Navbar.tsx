@@ -9,11 +9,11 @@ export function Navbar() {
 					{/* Logo */}
 					<div className="flex items-center space-x-2">
 						<Link href="/" className="flex items-center">
-							<Image src="/logo.svg" alt="BrightWay Initiative Logo" width={40} height={40} className="h-10 w-auto" />
-							<div className="ml-2">
-								<span className="text-primary font-bold text-xl leading-none block">BrightWay</span>
+							<Image src="/logo-full.svg" alt="BrightWay Initiative Logo" width={40} height={40} className="h-10 w-auto" />
+							{/* <div className="ml-2">
+								<span className="text-primary font-bold text-xl leading-none block">Brightway</span>
 								<span className="text-xs bg-primary text-primary-foreground px-1.5 py-0.5 rounded leading-none">Initiative</span>
-							</div>
+							</div> */}
 						</Link>
 					</div>
 

@@ -13,7 +13,7 @@ export default function Home() {
 							<h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
 								<span className="relative">
 									<span className="relative z-10">Innovative Solutions</span>
-									<span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span>
+									{/* <span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span> */}
 								</span>{' '}
 								for Your Business Growth
 							</h1>
@@ -44,4 +44,3 @@ export default function Home() {
 		</div>
 	);
 }
-

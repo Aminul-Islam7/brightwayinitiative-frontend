@@ -5,17 +5,17 @@ import { BackgroundBubbles } from '@/components/BackgroundBubbles';
 import { Maven_Pro, Noto_Serif_Bengali } from 'next/font/google';
 
 // Configure the fonts
-const mavenPro = Maven_Pro({ 
-  subsets: ['latin'],
-  variable: '--font-maven-pro',
-  display: 'swap',
+const mavenPro = Maven_Pro({
+	subsets: ['latin'],
+	variable: '--font-maven-pro',
+	display: 'swap',
 });
 
-const notoSerifBengali = Noto_Serif_Bengali({ 
-  subsets: ['bengali'],
-  variable: '--font-noto-serif-bengali',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
+const notoSerifBengali = Noto_Serif_Bengali({
+	subsets: ['bengali'],
+	variable: '--font-noto-serif-bengali',
+	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+	display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -48,4 +48,3 @@ export default function RootLayout({
 		</html>
 	);
 }
-

@@ -34,9 +34,24 @@ const counterData = [
 
 export function CounterSection() {
 	const [isVisible, setIsVisible] = useState(false);
+	const [isMounted, setIsMounted] = useState(false);
 	const sectionRef = useRef(null);
 
+	// Handle client-side mounting
 	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
+	useEffect(() => {
+		if (!isMounted) return;
+
+		// Fallback timer to ensure counters start even if intersection observer fails
+		const fallbackTimer = setTimeout(() => {
+			if (!isVisible) {
+				setIsVisible(true);
+			}
+		}, 3000); // 3 second fallback
+
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
@@ -44,7 +59,10 @@ export function CounterSection() {
 					observer.disconnect();
 				}
 			},
-			{ threshold: 0.1 }
+			{
+				threshold: 0.1,
+				rootMargin: '0px 0px -100px 0px', // Improve detection area
+			}
 		);
 
 		const currentRef = sectionRef.current;
@@ -53,11 +71,12 @@ export function CounterSection() {
 		}
 
 		return () => {
+			clearTimeout(fallbackTimer);
 			if (currentRef) {
 				observer.disconnect();
 			}
 		};
-	}, []);
+	}, [isMounted, isVisible]);
 
 	return (
 		<section ref={sectionRef} className="py-20 bg-gradient-to-b from-primary-50/50 to-background">
@@ -79,11 +98,12 @@ export function CounterSection() {
 							<div className="relative z-10 flex flex-col items-center gap-4">
 								<div className="text-primary/80 group-hover:text-primary transition-colors duration-300">{counter.icon}</div>
 								<div className="text-4xl font-bold text-foreground">
-									{isVisible && (
-										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} redraw={true} preserveValue={true}>
+									{isMounted && isVisible && (
+										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} redraw={false} preserveValue={true}>
 											{({ countUpRef }) => <span ref={countUpRef} />}
 										</CountUp>
 									)}
+									{!isMounted && <span>0{counter.suffix || ''}</span>}
 								</div>
 								<p className="text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300 text-center">{counter.title}</p>
 							</div>

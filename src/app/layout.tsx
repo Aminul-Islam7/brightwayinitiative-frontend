@@ -2,6 +2,21 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { BackgroundBubbles } from '@/components/BackgroundBubbles';
+import { Maven_Pro, Noto_Serif_Bengali } from 'next/font/google';
+
+// Configure the fonts
+const mavenPro = Maven_Pro({ 
+  subsets: ['latin'],
+  variable: '--font-maven-pro',
+  display: 'swap',
+});
+
+const notoSerifBengali = Noto_Serif_Bengali({ 
+  subsets: ['bengali'],
+  variable: '--font-noto-serif-bengali',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
 	title: 'BrightWay Initiative',
@@ -24,12 +39,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<head>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-				<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet" />
-			</head>
+		<html lang="en" className={`${mavenPro.variable} ${notoSerifBengali.variable}`}>
 			<body className="color-theme-palette antialiased font-maven-pro">
 				<BackgroundBubbles />
 				<Navbar />

@@ -47,12 +47,13 @@ export function CounterSection() {
 			{ threshold: 0.1 }
 		);
 
-		if (sectionRef.current) {
-			observer.observe(sectionRef.current);
+		const currentRef = sectionRef.current;
+		if (currentRef) {
+			observer.observe(currentRef);
 		}
 
 		return () => {
-			if (sectionRef.current) {
+			if (currentRef) {
 				observer.disconnect();
 			}
 		};
@@ -63,7 +64,7 @@ export function CounterSection() {
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
 					<h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact in Numbers</h2>
-					<p className="text-muted-foreground max-w-2xl mx-auto">We've helped numerous businesses achieve their goals through our innovative solutions and dedicated service.</p>
+					<p className="text-muted-foreground max-w-2xl mx-auto">We&apos;ve helped numerous businesses achieve their goals through our innovative solutions and dedicated service.</p>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

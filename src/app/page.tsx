@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { HeroAnimation } from '@/components/HeroAnimation';
+import { CounterSection } from '@/components/CounterSection';
 
 export default function Home() {
 	return (
 		<div className="min-h-screen">
 			{/* Hero Section */}
-			<section className="pt-32 pb-16 md:pt-48 md:pb-32 bg-gradient-to-br from-background via-background to-primary/10">
+			<section className="pt-32 pb-16 md:pt-48 md:pb-32">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-col md:flex-row items-center">
 						<div className="md:w-1/2 mb-12 md:mb-0 md:pr-12">
@@ -37,6 +38,9 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			{/* Counter Section */}
+			<CounterSection />
 		</div>
 	);
 }

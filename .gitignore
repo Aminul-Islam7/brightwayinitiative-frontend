@@ -24,6 +24,7 @@
 .DS_Store
 *.pem
 brightwayinitiative-frontend.code-workspace
+docs
 
 # debug
 npm-debug.log*

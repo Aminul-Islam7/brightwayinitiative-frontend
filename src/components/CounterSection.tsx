@@ -34,49 +34,63 @@ const counterData = [
 
 export function CounterSection() {
 	const [isVisible, setIsVisible] = useState(false);
-	const [isMounted, setIsMounted] = useState(false);
-	const sectionRef = useRef(null);
+	const [hasClientLoaded, setHasClientLoaded] = useState(false);
+	const sectionRef = useRef<HTMLElement | null>(null);
 
-	// Handle client-side mounting
+	// Mark when client-side JS is available
 	useEffect(() => {
-		setIsMounted(true);
+		setHasClientLoaded(true);
 	}, []);
 
+	// Set up the intersection observer once the client has loaded
 	useEffect(() => {
-		if (!isMounted) return;
+		if (!hasClientLoaded) return;
 
-		// Fallback timer to ensure counters start even if intersection observer fails
-		const fallbackTimer = setTimeout(() => {
-			if (!isVisible) {
-				setIsVisible(true);
-			}
-		}, 3000); // 3 second fallback
-
+		// Create a more basic IntersectionObserver configuration that works reliably in production
 		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
+			(entries) => {
+				if (entries[0].isIntersecting) {
 					setIsVisible(true);
 					observer.disconnect();
 				}
 			},
 			{
+				// Use a minimal threshold to improve reliability
 				threshold: 0.1,
-				rootMargin: '0px 0px -100px 0px', // Improve detection area
+				rootMargin: '0px 0px -50px 0px',
 			}
 		);
 
+		// Element to observe
 		const currentRef = sectionRef.current;
+
 		if (currentRef) {
 			observer.observe(currentRef);
 		}
 
+		// Add a safety fallback - if for some reason the observer doesn't trigger in production
+		// This will only run if scrolling doesn't activate the counter within 5 seconds of being in viewport
+		const fallbackTimer = setTimeout(() => {
+			// Check if visible is already set before forcing it
+			if (!isVisible && document.visibilityState !== 'hidden') {
+				// Only set if the element is actually in viewport
+				const element = sectionRef.current;
+				if (element) {
+					const rect = element.getBoundingClientRect();
+					if (rect.top <= (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0) {
+						setIsVisible(true);
+					}
+				}
+			}
+		}, 5000);
+
 		return () => {
-			clearTimeout(fallbackTimer);
 			if (currentRef) {
 				observer.disconnect();
 			}
+			clearTimeout(fallbackTimer);
 		};
-	}, [isMounted, isVisible]);
+	}, [hasClientLoaded, isVisible]);
 
 	return (
 		<section ref={sectionRef} className="py-20 bg-gradient-to-b from-primary-50/50 to-background">
@@ -98,12 +112,13 @@ export function CounterSection() {
 							<div className="relative z-10 flex flex-col items-center gap-4">
 								<div className="text-primary/80 group-hover:text-primary transition-colors duration-300">{counter.icon}</div>
 								<div className="text-4xl font-bold text-foreground">
-									{isMounted && isVisible && (
-										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} redraw={false} preserveValue={true}>
+									{hasClientLoaded && isVisible ? (
+										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} preserveValue={true} useEasing={true} enableScrollSpy={false}>
 											{({ countUpRef }) => <span ref={countUpRef} />}
 										</CountUp>
+									) : (
+										<span>0{counter.suffix || ''}</span>
 									)}
-									{!isMounted && <span>0{counter.suffix || ''}</span>}
 								</div>
 								<p className="text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300 text-center">{counter.title}</p>
 							</div>

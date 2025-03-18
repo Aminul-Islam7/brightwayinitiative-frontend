@@ -34,63 +34,35 @@ const counterData = [
 
 export function CounterSection() {
 	const [isVisible, setIsVisible] = useState(false);
-	const [hasClientLoaded, setHasClientLoaded] = useState(false);
 	const sectionRef = useRef<HTMLElement | null>(null);
 
-	// Mark when client-side JS is available
 	useEffect(() => {
-		setHasClientLoaded(true);
-	}, []);
+		// Function to check if element is in viewport
+		const checkIfVisible = () => {
+			if (!sectionRef.current || isVisible) return;
 
-	// Set up the intersection observer once the client has loaded
-	useEffect(() => {
-		if (!hasClientLoaded) return;
+			const rect = sectionRef.current.getBoundingClientRect();
+			const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-		// Create a more basic IntersectionObserver configuration that works reliably in production
-		const observer = new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting) {
-					setIsVisible(true);
-					observer.disconnect();
-				}
-			},
-			{
-				// Use a minimal threshold to improve reliability
-				threshold: 0.1,
-				rootMargin: '0px 0px -50px 0px',
+			// Consider element visible if it's in viewport
+			if (rect.top <= windowHeight - 100 && rect.bottom >= 0) {
+				setIsVisible(true);
+				// Remove scroll listener once counters start
+				window.removeEventListener('scroll', checkIfVisible);
 			}
-		);
-
-		// Element to observe
-		const currentRef = sectionRef.current;
-
-		if (currentRef) {
-			observer.observe(currentRef);
-		}
-
-		// Add a safety fallback - if for some reason the observer doesn't trigger in production
-		// This will only run if scrolling doesn't activate the counter within 5 seconds of being in viewport
-		const fallbackTimer = setTimeout(() => {
-			// Check if visible is already set before forcing it
-			if (!isVisible && document.visibilityState !== 'hidden') {
-				// Only set if the element is actually in viewport
-				const element = sectionRef.current;
-				if (element) {
-					const rect = element.getBoundingClientRect();
-					if (rect.top <= (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0) {
-						setIsVisible(true);
-					}
-				}
-			}
-		}, 5000);
-
-		return () => {
-			if (currentRef) {
-				observer.disconnect();
-			}
-			clearTimeout(fallbackTimer);
 		};
-	}, [hasClientLoaded, isVisible]);
+
+		// Initial check
+		checkIfVisible();
+
+		// Add scroll listener
+		window.addEventListener('scroll', checkIfVisible);
+
+		// Cleanup
+		return () => {
+			window.removeEventListener('scroll', checkIfVisible);
+		};
+	}, [isVisible]);
 
 	return (
 		<section ref={sectionRef} className="py-20 bg-gradient-to-b from-primary-50/50 to-background">
@@ -112,8 +84,8 @@ export function CounterSection() {
 							<div className="relative z-10 flex flex-col items-center gap-4">
 								<div className="text-primary/80 group-hover:text-primary transition-colors duration-300">{counter.icon}</div>
 								<div className="text-4xl font-bold text-foreground">
-									{hasClientLoaded && isVisible ? (
-										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} preserveValue={true} useEasing={true} enableScrollSpy={false}>
+									{isVisible ? (
+										<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} preserveValue={true} useEasing={true}>
 											{({ countUpRef }) => <span ref={countUpRef} />}
 										</CountUp>
 									) : (

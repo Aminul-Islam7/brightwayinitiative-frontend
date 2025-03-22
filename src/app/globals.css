@@ -113,6 +113,32 @@
 	--font-noto-serif-bengali: 'Noto Serif Bengali', serif;
 }
 
+/* Add new Swiper styles */
+.swiper {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.swiper-wrapper {
+	cursor: grab !important;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.swiper-wrapper:active {
+	cursor: grabbing !important;
+}
+
+.swiper-slide {
+	user-select: none;
+	-webkit-user-select: none;
+	pointer-events: none;
+}
+
+.swiper-slide > * {
+	pointer-events: auto;
+}
+
 :root {
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -469,4 +495,3 @@
 		animation: float-fast-reverse 12s ease-in-out infinite;
 	}
 }
-

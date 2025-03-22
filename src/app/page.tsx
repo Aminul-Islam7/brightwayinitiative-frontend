@@ -3,6 +3,8 @@ import { HeroAnimation } from '@/components/HeroAnimation';
 import { CounterSection } from '@/components/CounterSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
+import { ReviewsSection } from '@/components/ReviewsSection';
+import { FAQSection } from '@/components/FAQSection';
 
 export default function Home() {
 	return (
@@ -49,6 +51,12 @@ export default function Home() {
 
 			{/* Portfolio Section */}
 			<PortfolioSection />
+
+			{/* Reviews Section */}
+			<ReviewsSection />
+
+			{/* FAQ Section */}
+			<FAQSection />
 		</div>
 	);
 }

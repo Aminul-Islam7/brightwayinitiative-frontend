@@ -45,7 +45,7 @@ export function CounterSection() {
 			const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
 			// Consider element visible if it's in viewport
-			if (rect.top <= windowHeight - 500 && rect.bottom >= 0) {
+			if (rect.top <= windowHeight - 300 && rect.bottom >= 0) {
 				setIsVisible(true);
 				// Remove scroll listener once counters start
 				window.removeEventListener('scroll', checkIfVisible);

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/Footer';
 import { BackgroundBubbles } from '@/components/BackgroundBubbles';
 import { Maven_Pro, Noto_Serif_Bengali } from 'next/font/google';
 
@@ -43,7 +44,8 @@ export default function RootLayout({
 			<body className="color-theme-palette antialiased font-maven-pro">
 				<BackgroundBubbles />
 				<Navbar />
-				{children}
+				<main>{children}</main>
+				<Footer />
 			</body>
 		</html>
 	);

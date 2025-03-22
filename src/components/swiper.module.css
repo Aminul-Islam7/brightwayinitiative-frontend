@@ -1,0 +1,26 @@
+.swiper {
+	touch-action: none !important;
+	user-select: none;
+}
+
+.swiperWrapper {
+	touch-action: none !important;
+	user-select: none;
+}
+
+.swiperSlide {
+	touch-action: none !important;
+	user-select: none;
+}
+
+:global(.swiper-wrapper) {
+	cursor: grab !important;
+}
+
+:global(.swiper-wrapper:active) {
+	cursor: grabbing !important;
+}
+
+:global(.swiper-wrapper.dragging) {
+	cursor: grabbing !important;
+}

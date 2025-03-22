@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { HeroAnimation } from '@/components/HeroAnimation';
 import { CounterSection } from '@/components/CounterSection';
+import { ServicesSection } from '@/components/ServicesSection';
+import { PortfolioSection } from '@/components/PortfolioSection';
 
 export default function Home() {
 	return (
@@ -41,6 +43,12 @@ export default function Home() {
 
 			{/* Counter Section */}
 			<CounterSection />
+
+			{/* Services Section */}
+			<ServicesSection />
+
+			{/* Portfolio Section */}
+			<PortfolioSection />
 		</div>
 	);
 }

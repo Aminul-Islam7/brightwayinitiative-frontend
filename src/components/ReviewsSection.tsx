@@ -39,7 +39,7 @@ const reviews = [
 	},
 ];
 
-const gradients = ['from-primary-400/10 to-info-400/10', 'from-success-400/10 to-primary-400/10', 'from-warning-400/10 to-success-400/10'];
+const gradients = ['bg-accent/70', 'bg-accent/70', 'bg-accent/70'];
 
 export function ReviewsSection() {
 	const swiperRef = useRef<SwiperRef>(null);
@@ -60,13 +60,13 @@ export function ReviewsSection() {
 		<section className="py-20 relative overflow-hidden">
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 -z-10">
-				<div className="absolute top-40 -left-40 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl" />
-				<div className="absolute bottom-20 -right-40 w-96 h-96 bg-success-400/10 rounded-full blur-3xl" />
+				<div className="absolute top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+				<div className="absolute bottom-20 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 			</div>
 
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4">Client Reviews</h2>
+					<h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Client Reviews</h2>
 					<p className="text-muted-foreground max-w-2xl mx-auto">See what our clients have to say about working with us</p>
 				</div>
 
@@ -86,13 +86,13 @@ export function ReviewsSection() {
 					>
 						{reviews.map((review, index) => (
 							<SwiperSlide key={review.id}>
-								<div className={`bg-gradient-to-br ${gradients[index % gradients.length]} rounded-2xl p-8 md:p-12 border border-border/30 backdrop-blur-sm relative`}>
+								<div className={`${gradients[index % gradients.length]} rounded-2xl p-8 md:p-12 border border-border backdrop-blur-sm relative`}>
 									{/* Card Navigation Buttons */}
 									<div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-10">
-										<button onClick={goPrev} className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto w-10 h-10 rounded-full bg-background/40 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground/50 cursor-pointer hover:text-primary hover:border-primary hover:bg-background/80 shadow-lg transform hover:scale-110 transition-all" aria-label="Previous review">
+										<button onClick={goPrev} className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto w-10 h-10 rounded-full bg-background backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground cursor-pointer hover:text-primary hover:border-primary hover:bg-background shadow-lg transform hover:scale-110 transition-all" aria-label="Previous review">
 											<ChevronLeft className="w-5 h-5" />
 										</button>
-										<button onClick={goNext} className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto w-10 h-10 rounded-full bg-background/40 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground/50 cursor-pointer hover:text-primary hover:border-primary hover:bg-background/80 shadow-lg transform hover:scale-110 transition-all" aria-label="Next review">
+										<button onClick={goNext} className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto w-10 h-10 rounded-full bg-background backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground cursor-pointer hover:text-primary hover:border-primary hover:bg-background shadow-lg transform hover:scale-110 transition-all" aria-label="Next review">
 											<ChevronRight className="w-5 h-5" />
 										</button>
 									</div>
@@ -115,7 +115,7 @@ export function ReviewsSection() {
 										{/* Right column with review text */}
 										<div className="flex-1">
 											<Quote className="w-12 h-12 mb-4 text-primary/40" strokeWidth={1} />
-											<blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-foreground/90 leading-relaxed">&ldquo;{review.review}&rdquo;</blockquote>
+											<blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-foreground leading-relaxed">&ldquo;{review.review}&rdquo;</blockquote>
 										</div>
 									</div>
 								</div>

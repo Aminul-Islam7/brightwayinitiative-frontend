@@ -311,6 +311,37 @@
 	--sidebar-ring: var(--primary-500);
 }
 
+/* Make html.dark element apply the dark theme to color-theme-palette */
+html.dark body.color-theme-palette {
+	--background: var(--neutral-900);
+	--foreground: var(--neutral-100);
+	--card: var(--neutral-800);
+	--card-foreground: var(--neutral-100);
+	--popover: var(--neutral-800);
+	--popover-foreground: var(--neutral-100);
+	--primary: var(--primary-500);
+	--primary-foreground: white;
+	--secondary: var(--neutral-700);
+	--secondary-foreground: var(--neutral-100);
+	--muted: var(--neutral-700);
+	--muted-foreground: var(--neutral-400);
+	--accent: var(--primary-800);
+	--accent-foreground: var(--primary-100);
+	--destructive: var(--destructive-500);
+	--destructive-foreground: white;
+	--border: var(--neutral-700);
+	--input: var(--neutral-700);
+	--ring: var(--primary-500);
+	--sidebar: var(--neutral-800);
+	--sidebar-foreground: var(--neutral-100);
+	--sidebar-primary: var(--primary-500);
+	--sidebar-primary-foreground: white;
+	--sidebar-accent: var(--neutral-700);
+	--sidebar-accent-foreground: var(--neutral-100);
+	--sidebar-border: var(--neutral-700);
+	--sidebar-ring: var(--primary-500);
+}
+
 .dark {
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);

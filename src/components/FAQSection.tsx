@@ -55,7 +55,7 @@ export function FAQSection() {
 					{faqs.map((faq, index) => (
 						<div
 							key={faq.id}
-							className="mb-4 rounded-xl bg-gradient-to-br from-background to-primary-50/30 border border-border/30 backdrop-blur-sm 
+							className="mb-4 rounded-xl border border-border/30 backdrop-blur-sm 
                                      hover:border-primary/20 transition-all duration-300"
 						>
 							<button onClick={() => toggleFAQ(index)} className="w-full px-6 py-4 text-left flex items-center justify-between" aria-expanded={openIndex === index}>

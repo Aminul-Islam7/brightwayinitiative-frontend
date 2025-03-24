@@ -60,7 +60,7 @@ export function PortfolioSection() {
 		<section className="py-20">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4">Our Portfolio</h2>
+					<h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Portfolio</h2>
 					<p className="text-muted-foreground max-w-2xl mx-auto">Explore our successful projects and see how we&apos;ve helped businesses transform and grow</p>
 				</div>
 
@@ -68,9 +68,9 @@ export function PortfolioSection() {
 					{portfolioItems.map((item) => (
 						<Link key={item.id} href={item.link} className="group">
 							<div
-								className="h-full rounded-xl bg-gradient-to-br from-background to-primary-50/30 border border-border/30 backdrop-blur-sm 
-                                hover:border-primary/20 hover:bg-gradient-to-br hover:from-primary-50/50 hover:to-background
-                                transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden"
+								className="h-full rounded-xl bg-card/60 border border-border/50 dark:border-border
+                                hover:border-primary/50 hover:bg-accent/40
+                                transition-all duration-300 overflow-hidden backdrop-blur-sm"
 							>
 								<div className="relative h-48 w-full overflow-hidden">
 									<Image src={item.image} alt={item.title} fill className="object-cover transform group-hover:scale-105 transition-transform duration-300" />
@@ -78,7 +78,7 @@ export function PortfolioSection() {
 								</div>
 								<div className="p-6">
 									<div className="text-sm font-medium text-primary mb-2">{item.category}</div>
-									<h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+									<h3 className="text-xl font-semibold mb-3 text-card-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h3>
 									<p className="text-muted-foreground mb-6">{item.description}</p>
 									<div className="flex items-center text-primary font-medium">
 										View Project

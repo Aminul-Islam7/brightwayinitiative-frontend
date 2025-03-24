@@ -3,8 +3,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 
 export function Footer() {
+	const { resolvedTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	return (
 		<footer className="relative mt-20 overflow-hidden">
 			{/* Gradient Top Border */}
@@ -35,7 +44,7 @@ export function Footer() {
 				<div className="absolute -bottom-20 -left-20 w-40 h-40 bg-success/5 rounded-full blur-3xl"></div>
 			</div>
 
-			<div className="bg-gradient-to-b from-background to-primary-50/5 relative">
+			<div className="bg-gradient-to-b from-background to-background/5 dark:from-background dark:to-primary-950/10 relative transition-colors duration-300">
 				<div className="container mx-auto px-4 py-16">
 					{/* Grid layout section */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -43,7 +52,7 @@ export function Footer() {
 						<div className="space-y-6 relative">
 							<div className="relative z-10">
 								<Link href="/" className="flex items-center space-x-2">
-									<Image src="/logo-full.svg" alt="BrightWay Initiative Logo" width={40} height={40} className="h-10 w-auto" />
+									<Image src={mounted && resolvedTheme === 'dark' ? '/logo-full.svg' : '/logo-full.svg'} alt="BrightWay Initiative Logo" width={40} height={40} className="h-10 w-auto transition-colors duration-300" />
 								</Link>
 							</div>
 							<p className="text-muted-foreground relative z-10">Empowering businesses with innovative technology solutions for sustainable growth and digital transformation.</p>
@@ -65,7 +74,7 @@ export function Footer() {
 
 						{/* Quick Links */}
 						<div className="relative z-10">
-							<h3 className="font-semibold text-lg mb-6">Quick Links</h3>
+							<h3 className="font-semibold text-lg mb-6 text-foreground">Quick Links</h3>
 							<ul className="space-y-4">
 								<li>
 									<Link href="/about" className="text-muted-foreground hover:text-primary transition-colors group flex items-center">
@@ -96,7 +105,7 @@ export function Footer() {
 
 						{/* Services */}
 						<div className="relative z-10">
-							<h3 className="font-semibold text-lg mb-6">Services</h3>
+							<h3 className="font-semibold text-lg mb-6 text-foreground">Services</h3>
 							<ul className="space-y-4">
 								<li>
 									<Link href="/services/web-development" className="text-muted-foreground hover:text-primary transition-colors group flex items-center">
@@ -127,7 +136,7 @@ export function Footer() {
 
 						{/* Contact Info */}
 						<div className="relative z-10">
-							<h3 className="font-semibold text-lg mb-6">Contact Us</h3>
+							<h3 className="font-semibold text-lg mb-6 text-foreground">Contact Us</h3>
 							<ul className="space-y-4">
 								<li className="flex items-center space-x-3 group">
 									<div className="relative">

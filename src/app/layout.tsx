@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BackgroundBubbles } from '@/components/BackgroundBubbles';
 import { Maven_Pro, Noto_Serif_Bengali } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 
 // Configure the fonts
 const mavenPro = Maven_Pro({
@@ -40,12 +41,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${mavenPro.variable} ${notoSerifBengali.variable}`}>
+		<html lang="en" suppressHydrationWarning className={`${mavenPro.variable} ${notoSerifBengali.variable}`}>
 			<body className="color-theme-palette antialiased font-maven-pro">
-				<BackgroundBubbles />
-				<Navbar />
-				<main>{children}</main>
-				<Footer />
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					<BackgroundBubbles />
+					<Navbar />
+					<main>{children}</main>
+					<Footer />
+				</ThemeProvider>
 			</body>
 		</html>
 	);

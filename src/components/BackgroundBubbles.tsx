@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 interface Bubble {
 	id: number;
@@ -12,6 +13,13 @@ interface Bubble {
 }
 
 export function BackgroundBubbles() {
+	const { resolvedTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	const [bubbles] = useState<Bubble[]>(() => {
 		// Generate more random bubbles (10 instead of 6)
 		return Array.from({ length: 10 }, (_, i) => {
@@ -42,12 +50,25 @@ export function BackgroundBubbles() {
 		});
 	});
 
+	// Define different bubble colors for dark mode
+	const getLightModeColor = (index: number) => {
+		const colors = ['bg-primary-300/20', 'bg-success-300/20', 'bg-info-400/20', 'bg-primary-200/20', 'bg-warning-200/20', 'bg-primary-400/20', 'bg-info-300/20', 'bg-success-400/20', 'bg-primary-500/20', 'bg-warning-300/20'];
+		return colors[index % colors.length];
+	};
+
+	const getDarkModeColor = (index: number) => {
+		const colors = ['bg-primary-700/20', 'bg-success-700/20', 'bg-info-700/20', 'bg-primary-800/20', 'bg-warning-800/15', 'bg-primary-600/20', 'bg-info-600/20', 'bg-success-600/20', 'bg-primary-500/20', 'bg-warning-700/15'];
+		return colors[index % colors.length];
+	};
+
+	const isDarkMode = mounted && resolvedTheme === 'dark';
+
 	return (
-		<div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-			{bubbles.map((bubble) => (
+		<div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none transition-colors duration-500">
+			{bubbles.map((bubble, i) => (
 				<div
 					key={bubble.id}
-					className={`absolute rounded-full blur-3xl ${bubble.color} ${bubble.animation}`}
+					className={`absolute rounded-full blur-3xl ${isDarkMode ? getDarkModeColor(i) : getLightModeColor(i)} ${bubble.animation} transition-colors duration-500`}
 					style={{
 						left: `${bubble.left}%`,
 						top: `${bubble.top}%`,

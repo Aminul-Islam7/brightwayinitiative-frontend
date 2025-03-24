@@ -50,10 +50,10 @@ const services = [
 
 export function ServicesSection() {
 	return (
-		<section className="py-20 bg-gradient-to-b from-background to-primary-50/30">
+		<section className="py-20">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+					<h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Services</h2>
 					<p className="text-muted-foreground max-w-2xl mx-auto">Comprehensive solutions tailored to meet your business needs and drive success</p>
 				</div>
 
@@ -61,13 +61,13 @@ export function ServicesSection() {
 					{services.map((service) => (
 						<Link key={service.id} href={service.link} className="group">
 							<div
-								className="h-full p-6 rounded-xl bg-gradient-to-br from-background to-primary-50/30 border border-border/30 backdrop-blur-sm 
-                                hover:border-primary/20 hover:bg-gradient-to-br hover:from-primary-50/50 hover:to-background
-                                transition-all duration-300 shadow-sm hover:shadow-md"
+								className="h-full p-6 rounded-xl bg-card border border-border/50 bg-card/60 dark:border-border
+                                hover:border-primary/50 hover:bg-accent/40
+                                transition-all duration-300 backdrop-blur-sm"
 							>
 								<div className="relative z-10 flex flex-col h-full">
 									<div className="text-primary/80 group-hover:text-primary transition-colors duration-300 mb-4">{service.icon}</div>
-									<h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{service.title}</h3>
+									<h3 className="text-xl font-semibold mb-3 text-card-foreground group-hover:text-primary transition-colors duration-300">{service.title}</h3>
 									<p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
 									<div className="flex items-center text-primary font-medium">
 										Learn More

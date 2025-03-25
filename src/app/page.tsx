@@ -29,14 +29,14 @@ export default function Home() {
 	return (
 		<div className="min-h-screen">
 			{/* Hero Section */}
-			<section className="pt-20 lg:pt-32 xl:pt-48 pb-16 md:pb-32">
+			<section className="pt-20 lg:pt-32 xl:pt-48 pb-16 md:pb-32 overflow-hidden">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-col lg:flex-row items-center">
 						{/* Show animation first on smaller screens */}
-						<div className="order-1 lg:order-2 lg:w-1/2 relative mb-1 lg:mb-0 w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
+						<div className="order-1 lg:order-2 lg:w-1/2 relative mb-1 lg:mb-0 w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden">
 							<HeroAnimation />
-							<div className="absolute -top-6 -right-6 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-							<div className="absolute -bottom-8 -left-8 w-40 h-40 bg-success/20 rounded-full blur-3xl -z-10"></div>
+							{/* <div className="absolute -top-6 -right-6 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+							<div className="absolute -bottom-8 -left-8 w-40 h-40 bg-success/20 rounded-full blur-3xl -z-10"></div> */}
 						</div>
 
 						<div className="order-2 lg:order-1 lg:w-1/2 lg:pr-12">

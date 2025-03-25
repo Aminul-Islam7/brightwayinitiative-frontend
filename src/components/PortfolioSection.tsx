@@ -10,7 +10,7 @@ const portfolioItems = [
 		title: 'E-Commerce Platform',
 		category: 'Web Development',
 		description: 'A modern e-commerce solution with seamless payment integration and inventory management.',
-		image: '/portfolio/ecommerce.svg',
+		image: '/portfolio/ecommerce.webp',
 		link: '/portfolio/ecommerce-platform',
 	},
 	{
@@ -18,7 +18,7 @@ const portfolioItems = [
 		title: 'Healthcare Dashboard',
 		category: 'UI/UX Design',
 		description: 'Intuitive analytics dashboard for healthcare providers to monitor patient care metrics.',
-		image: '/portfolio/healthcare.svg',
+		image: '/portfolio/healthcare.jpg',
 		link: '/portfolio/healthcare-dashboard',
 	},
 	{
@@ -26,7 +26,7 @@ const portfolioItems = [
 		title: 'Social Media Campaign',
 		category: 'Digital Marketing',
 		description: 'Successful social media campaign that increased brand engagement by 150%.',
-		image: '/portfolio/social-media.svg',
+		image: '/portfolio/social-media.webp',
 		link: '/portfolio/social-campaign',
 	},
 	{
@@ -34,7 +34,7 @@ const portfolioItems = [
 		title: 'Secure Payment Gateway',
 		category: 'Cybersecurity',
 		description: 'PCI-compliant payment processing system with advanced fraud detection.',
-		image: '/portfolio/payment.svg',
+		image: '/portfolio/payment.jpg',
 		link: '/portfolio/payment-gateway',
 	},
 	{
@@ -42,7 +42,7 @@ const portfolioItems = [
 		title: 'Cloud Migration',
 		category: 'IT Consulting',
 		description: 'Strategic cloud migration that reduced operational costs by 40%.',
-		image: '/portfolio/cloud.svg',
+		image: '/portfolio/cloud.jpg',
 		link: '/portfolio/cloud-migration',
 	},
 	{
@@ -50,20 +50,15 @@ const portfolioItems = [
 		title: 'AI-Powered Analytics',
 		category: 'AI Solutions',
 		description: 'Machine learning solution for predictive business analytics.',
-		image: '/portfolio/ai-analytics.svg',
+		image: '/portfolio/ai-analytics.webp',
 		link: '/portfolio/ai-analytics',
 	},
 ];
 
 export function PortfolioSection() {
 	return (
-		<section className="py-20">
+		<section className="py-10">
 			<div className="container mx-auto px-4">
-				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Portfolio</h2>
-					<p className="text-muted-foreground max-w-2xl mx-auto">Explore our successful projects and see how we&apos;ve helped businesses transform and grow</p>
-				</div>
-
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{portfolioItems.map((item) => (
 						<Link key={item.id} href={item.link} className="group">
@@ -72,7 +67,7 @@ export function PortfolioSection() {
                                 hover:border-primary/50 hover:bg-accent/40
                                 transition-all duration-300 overflow-hidden backdrop-blur-sm"
 							>
-								<div className="relative h-48 w-full overflow-hidden">
+								<div className="relative h-64 w-full overflow-hidden">
 									<Image src={item.image} alt={item.title} fill className="object-cover transform group-hover:scale-105 transition-transform duration-300" />
 									<div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 								</div>

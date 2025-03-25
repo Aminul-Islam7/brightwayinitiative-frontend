@@ -63,7 +63,7 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 				className="absolute inset-0 rounded-full"
 				initial={false}
 				animate={{
-					backgroundColor: isDarkMode ? 'var(--primary-900)' : 'var(--primary-100)',
+					// backgroundColor: isDarkMode ? 'var(--primary-900)' : 'var(--primary-100)',
 					boxShadow: isHovered ? (isDarkMode ? '0 0 8px 2px var(--primary-700), inset 0 0 8px var(--primary-600)' : '0 0 8px 2px var(--primary-300), inset 0 0 8px var(--primary-200)') : 'none',
 				}}
 				transition={{ type: 'tween', duration: 0.3 }}

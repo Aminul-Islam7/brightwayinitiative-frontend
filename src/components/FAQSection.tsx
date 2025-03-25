@@ -37,32 +37,27 @@ const faqs = [
 ];
 
 export function FAQSection() {
-	const [openIndex, setOpenIndex] = useState<number | null>(null);
+	const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
 	const toggleFAQ = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index);
+		setOpenIndexes((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]));
 	};
 
 	return (
-		<section className="py-20">
+		<section className="py-10">
 			<div className="container mx-auto px-4">
-				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-					<p className="text-muted-foreground max-w-2xl mx-auto">Find answers to common questions about our services and process</p>
-				</div>
-
 				<div className="max-w-3xl mx-auto">
 					{faqs.map((faq, index) => (
 						<div
 							key={faq.id}
-							className="mb-4 rounded-xl border border-border/30 backdrop-blur-sm 
-                                     hover:border-primary/20 transition-all duration-300"
+							className="mb-4 rounded-xl border border-border/50 backdrop-blur-sm 
+                                     hover:border-primary/40 transition-all duration-300"
 						>
-							<button onClick={() => toggleFAQ(index)} className="w-full px-6 py-4 text-left flex items-center justify-between" aria-expanded={openIndex === index}>
+							<button onClick={() => toggleFAQ(index)} className="w-full px-6 py-4 cursor-pointer text-left flex items-center justify-between" aria-expanded={openIndexes.includes(index)}>
 								<span className="text-lg font-medium text-foreground">{faq.question}</span>
-								<ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} />
+								<ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${openIndexes.includes(index) ? 'rotate-180' : ''}`} />
 							</button>
-							<div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-48' : 'max-h-0'}`}>
+							<div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndexes.includes(index) ? 'max-h-48' : 'max-h-0'}`}>
 								<div className="px-6 pb-4 text-muted-foreground">{faq.answer}</div>
 							</div>
 						</div>

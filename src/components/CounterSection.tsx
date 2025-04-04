@@ -76,7 +76,7 @@ export function CounterSection() {
 									<div className="text-primary/80 group-hover:text-primary transition-colors duration-300">{counter.icon}</div>
 									<div className="text-4xl font-bold text-foreground">
 										{isVisible ? (
-											<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} preserveValue={true} useEasing={true}>
+											<CountUp start={0} end={counter.value} duration={2.5} separator="," suffix={counter.suffix} preserveValue={true} useEasing={true} delay={0}>
 												{({ countUpRef }) => <span ref={countUpRef} />}
 											</CountUp>
 										) : (

@@ -58,17 +58,7 @@ export default function LightDarkSwitch({ className = '' }: LightDarkSwitchProps
 	};
 
 	return (
-		<button
-			type="button"
-			onClick={toggleTheme}
-			onMouseEnter={handleHoverStart}
-			onMouseLeave={handleHoverEnd}
-			onTouchStart={handleTouchStart}
-			onTouchEnd={handleTouchEnd}
-			onTouchCancel={handleTouchEnd}
-			className={`relative flex items-center justify-center rounded-full cursor-pointer p-2 transition-colors ${className}`}
-			aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-		>
+		<button type="button" onClick={toggleTheme} onMouseEnter={handleHoverStart} onMouseLeave={handleHoverEnd} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} className={`relative flex items-center justify-center rounded-full cursor-pointer p-2 transition-colors ${className}`} aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}>
 			<motion.div
 				style={{
 					position: 'absolute',

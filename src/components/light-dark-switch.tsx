@@ -9,7 +9,7 @@ interface LightDarkSwitchProps {
 	className?: string;
 }
 
-export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
+export default function LightDarkSwitch({ className = '' }: LightDarkSwitchProps) {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
@@ -58,20 +58,39 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 	};
 
 	return (
-		<motion.button className={`relative flex items-center justify-center rounded-full cursor-pointer p-2 transition-colors ${className}`} onClick={toggleTheme} onMouseEnter={handleHoverStart} onMouseLeave={handleHoverEnd} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} whileTap={{ scale: 0.9 }} aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}>
+		<button
+			type="button"
+			onClick={toggleTheme}
+			onMouseEnter={handleHoverStart}
+			onMouseLeave={handleHoverEnd}
+			onTouchStart={handleTouchStart}
+			onTouchEnd={handleTouchEnd}
+			onTouchCancel={handleTouchEnd}
+			className={`relative flex items-center justify-center rounded-full cursor-pointer p-2 transition-colors ${className}`}
+			aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+		>
 			<motion.div
-				className="absolute inset-0 rounded-full"
+				style={{
+					position: 'absolute',
+					inset: 0,
+					borderRadius: '9999px',
+				}}
 				initial={false}
 				animate={{
-					// backgroundColor: isDarkMode ? 'var(--primary-900)' : 'var(--primary-100)',
 					boxShadow: isHovered ? (isDarkMode ? '0 0 8px 2px var(--primary-700), inset 0 0 8px var(--primary-600)' : '0 0 8px 2px var(--primary-300), inset 0 0 8px var(--primary-200)') : 'none',
 				}}
 				transition={{ type: 'tween', duration: 0.3 }}
 			/>
 
 			<div className="relative h-6 w-6">
-				{/* Sun */}
 				<motion.div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
 					initial={false}
 					animate={{
 						scale: isDarkMode ? 0 : 1,
@@ -83,13 +102,18 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 						stiffness: 200,
 						damping: 10,
 					}}
-					className="absolute inset-0 flex items-center justify-center"
 				>
 					<Sun className="h-5 w-5" strokeWidth={2} />
 				</motion.div>
 
-				{/* Moon and stars */}
 				<motion.div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
 					initial={false}
 					animate={{
 						scale: isDarkMode ? 1 : 0,
@@ -101,12 +125,11 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 						stiffness: 200,
 						damping: 10,
 					}}
-					className="absolute inset-0 flex items-center justify-center"
 				>
 					{isDarkMode ? (
 						<>
 							<motion.div
-								className="relative"
+								style={{ position: 'relative' }}
 								initial={false}
 								animate={{ rotate: isHovered ? [0, 15, -5, 0] : 0 }}
 								transition={{
@@ -117,7 +140,13 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 							>
 								<Moon className="h-5 w-5" strokeWidth={2} />
 								<motion.div
-									className="absolute -right-0.5 -top-0.5"
+									style={{
+										position: 'absolute',
+										right: '-2px',
+										top: '-2px',
+										transformOrigin: 'center',
+										transform: 'scale(0.8)',
+									}}
 									animate={{
 										scale: isHovered ? [1, 1.2, 1] : 1,
 										opacity: isHovered ? [0.7, 1, 0.7] : 0.7,
@@ -126,10 +155,6 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 										duration: 2,
 										repeat: isHovered ? Infinity : 0,
 										repeatType: 'loop',
-									}}
-									style={{
-										transformOrigin: 'center',
-										transform: 'scale(0.8)',
 									}}
 								>
 									<Stars className="h-2 w-2" strokeWidth={2} />
@@ -141,6 +166,6 @@ export default function LightDarkSwitch({ className }: LightDarkSwitchProps) {
 					)}
 				</motion.div>
 			</div>
-		</motion.button>
+		</button>
 	);
 }

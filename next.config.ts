@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
 	images: {
-		domains: ['placehold.co'],
+		domains: ['localhost', 'placehold.co'],
 	},
 	// Optimize output for production
 	output: 'standalone',
@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
 	// Enable React strict mode
 	reactStrictMode: true,
 	// Ensure SWC is used for compilation (needed for next/font)
+	compress: true,
 	compiler: {
 		// No need to manually configure anything here
 		// SWC will be used by default when no .babelrc is present
@@ -20,4 +21,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-

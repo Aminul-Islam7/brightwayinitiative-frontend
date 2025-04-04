@@ -97,7 +97,14 @@ export function ReviewsSection() {
 									{/* Image - circle on mobile, rectangle on desktop */}
 									<div className="flex justify-center md:block py-8 md:py-0 w-full md:w-1/4">
 										<div className="relative w-64 h-64 md:w-full md:h-full min-h-[300px] rounded-lg md:rounded-none overflow-hidden">
-											<Image src={review.image} alt={review.name} fill className="object-cover" />
+											<Image
+												src={review.image}
+												alt={review.name}
+												fill
+												className="object-cover"
+												priority={index < 3} // Preload first 3 images
+												sizes="(max-width: 768px) 100vw, 50vw"
+											/>
 											<div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-transparent to-black/30" />
 										</div>
 									</div>

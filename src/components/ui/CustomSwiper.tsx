@@ -8,7 +8,7 @@ import type { SwiperRef } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-interface CustomSwiperProps extends ComponentProps<typeof Swiper> {}
+type CustomSwiperProps = ComponentProps<typeof Swiper>;
 
 export const CustomSwiper = forwardRef<SwiperRef, CustomSwiperProps>((props, ref) => {
 	const wrapperRef = useRef<HTMLDivElement>(null);

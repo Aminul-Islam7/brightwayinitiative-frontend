@@ -6,35 +6,35 @@ import { ArrowRight, Code2, Paintbrush, LineChart, Shield, Users2, Bot } from 'l
 const services = [
 	{
 		id: 1,
-		title: 'Web Development',
+		title: 'Business Consultation',
 		description: 'Custom web applications built with cutting-edge technologies to power your business.',
 		icon: <Code2 className="w-8 h-8" strokeWidth={1.5} />,
 		link: '/services/web-development',
 	},
 	{
 		id: 2,
-		title: 'UI/UX Design',
+		title: 'Pitch Deck Presentation',
 		description: 'Beautiful, intuitive interfaces that enhance user experience and engagement.',
 		icon: <Paintbrush className="w-8 h-8" strokeWidth={1.5} />,
 		link: '/services/ui-ux-design',
 	},
 	{
 		id: 3,
-		title: 'Digital Marketing',
+		title: 'Sales Presentation',
 		description: 'Strategic digital marketing solutions to grow your online presence and reach.',
 		icon: <LineChart className="w-8 h-8" strokeWidth={1.5} />,
 		link: '/services/digital-marketing',
 	},
 	{
 		id: 4,
-		title: 'Cybersecurity',
+		title: 'Professional Documentation',
 		description: 'Comprehensive security solutions to protect your digital assets and data.',
 		icon: <Shield className="w-8 h-8" strokeWidth={1.5} />,
 		link: '/services/cybersecurity',
 	},
 	{
 		id: 5,
-		title: 'IT Consulting',
+		title: '',
 		description: 'Expert guidance to help you make informed technology decisions.',
 		icon: <Users2 className="w-8 h-8" strokeWidth={1.5} />,
 		link: '/services/it-consulting',
@@ -56,7 +56,7 @@ export function ServicesSection() {
 					{services.map((service) => (
 						<Link key={service.id} href={service.link} className="group">
 							<div
-								className="h-full p-6 rounded-xl bg-card border border-border/50 bg-card/60 dark:border-border
+								className="h-full p-6 rounded-xl bg-card border border-border bg-card/60
                                 hover:border-primary/50 hover:bg-accent/40
                                 transition-all duration-300 backdrop-blur-sm"
 							>

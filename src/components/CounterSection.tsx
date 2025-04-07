@@ -70,7 +70,7 @@ export function CounterSection() {
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 					{counterData.map((counter) => (
 						<div key={counter.id} className="group relative">
-							<div className="p-6 rounded-xl border border-border/50 flex items-center justify-center relative group-hover:border-primary/20 transition-colors">
+							<div className="p-6 rounded-xl border border-border flex items-center justify-center relative group-hover:border-primary/20 transition-colors">
 								<div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 								<div className="relative z-10 flex flex-col items-center gap-4">
 									<div className="text-primary/80 group-hover:text-primary transition-colors duration-300">{counter.icon}</div>

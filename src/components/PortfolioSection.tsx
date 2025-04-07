@@ -63,7 +63,7 @@ export function PortfolioSection() {
 					{portfolioItems.map((item) => (
 						<Link key={item.id} href={item.link} className="group">
 							<div
-								className="h-full rounded-xl bg-card/60 border border-border/50 dark:border-border
+								className="h-full rounded-xl bg-card/60 border border-border
                                 hover:border-primary/50 hover:bg-accent/40
                                 transition-all duration-300 overflow-hidden backdrop-blur-sm"
 							>

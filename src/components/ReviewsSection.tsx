@@ -83,7 +83,7 @@ export function ReviewsSection() {
 					>
 						{reviews.map((review, index) => (
 							<SwiperSlide key={review.id}>
-								<div className={`${gradients[index % gradients.length]} rounded-2xl border border-border/50 dark:border-border backdrop-blur-sm relative flex flex-col md:flex-row overflow-hidden`}>
+								<div className={`${gradients[index % gradients.length]} rounded-2xl border border-border backdrop-blur-sm relative flex flex-col md:flex-row overflow-hidden`}>
 									{/* Card Navigation Buttons */}
 									<div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-10">
 										<button onClick={goPrev} className="md:opacity-0 group-hover:opacity-100 transition-opacity pointer-events-auto w-10 h-10 rounded-full bg-background/50 backdrop-blur-sm flex items-center justify-center text-muted-foreground cursor-pointer hover:text-primary hover:bg-background/70 shadow-lg transform transition-all" aria-label="Previous review">
@@ -127,7 +127,7 @@ export function ReviewsSection() {
 										</div>
 
 										{/* Name and designation at the bottom */}
-										<div className="mt-4 pt-4 border-t border-border/30">
+										<div className="mt-4 pt-4 border-t border-border">
 											<h4 className="font-semibold text-lg md:text-xl lg:text-2xl text-foreground">{review.name}</h4>
 											<p className="text-primary font-medium text-sm md:text-base">{review.role}</p>
 										</div>

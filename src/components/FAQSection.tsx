@@ -50,7 +50,7 @@ export function FAQSection() {
 					{faqs.map((faq, index) => (
 						<div
 							key={faq.id}
-							className="mb-4 rounded-xl border border-border/50 backdrop-blur-sm 
+							className="mb-4 rounded-xl border border-border backdrop-blur-sm 
                                      hover:border-primary/40 transition-all duration-300"
 						>
 							<button onClick={() => toggleFAQ(index)} className="w-full px-6 py-4 cursor-pointer text-left flex items-center justify-between" aria-expanded={openIndexes.includes(index)}>

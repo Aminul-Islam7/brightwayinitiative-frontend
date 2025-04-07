@@ -41,8 +41,8 @@ export default function EmployeeLogin() {
 	};
 
 	return (
-		<div className="min-h-screen flex items-center justify-center px-4">
-			{/* Animated background elements */}
+		<div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+			{/* Animated background elements - constrained within viewport */}
 			<motion.div
 				style={{
 					position: 'absolute',
@@ -53,6 +53,7 @@ export default function EmployeeLogin() {
 					backgroundColor: 'var(--primary-300)',
 					opacity: 0.2,
 					zIndex: 0,
+					overflow: 'hidden',
 				}}
 				initial={{ x: -200, y: -200 }}
 				animate={{
@@ -75,6 +76,7 @@ export default function EmployeeLogin() {
 					backgroundColor: 'var(--success-300)',
 					opacity: 0.2,
 					zIndex: 0,
+					overflow: 'hidden',
 				}}
 				initial={{ x: 200, y: 200 }}
 				animate={{
@@ -88,8 +90,8 @@ export default function EmployeeLogin() {
 				}}
 			/>
 
-			{/* Login Card */}
-			<div className="w-full max-w-md relative z-10">
+			{/* Login Card - properly contained */}
+			<div className="w-full max-w-md px-4 relative z-10">
 				<div className="text-center mb-6">
 					<Link href="/" className="inline-block mb-2">
 						<Image src="/logo-full.svg" alt="BrightWay Initiative" width={60} height={60} className="mx-auto" />
@@ -100,13 +102,14 @@ export default function EmployeeLogin() {
 
 				<motion.div
 					style={{
+						width: '100%',
 						backgroundColor: 'var(--card)',
 						backdropFilter: 'blur(8px)',
 						borderRadius: 'var(--radius-xl)',
 						border: '1px solid var(--border)',
 						overflow: 'hidden',
 						padding: '2rem',
-						boxShadow: 'var(--shadow-lg)',
+						boxShadow: 'var(--shadow-lg)'
 					}}
 					initial={{ y: 20, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
@@ -123,7 +126,7 @@ export default function EmployeeLogin() {
 								<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
 									<AtSign className="h-5 w-5" />
 								</div>
-								<input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-background/50 pl-10 block w-full rounded-md border border-input py-2 text-foreground shadow-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="employee@brightwayinitiative.com" required />
+								<input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-background/50 pl-10 block w-full rounded-md border border-input py-2 text-foreground shadow-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-sm" placeholder="employee@brightwayinitiative.com" required />
 							</div>
 						</div>
 

@@ -15,7 +15,7 @@ export default function NotFound() {
 					height: '18rem',
 					borderRadius: '9999px',
 					filter: 'blur(64px)',
-					backgroundColor: 'var(--primary-300-20)',
+					backgroundColor: 'hsl(var(--primary) / 0.2)',
 				}}
 				initial={{ x: -200, y: -200 }}
 				animate={{
@@ -35,7 +35,7 @@ export default function NotFound() {
 					height: '18rem',
 					borderRadius: '9999px',
 					filter: 'blur(64px)',
-					backgroundColor: 'var(--success-300-20)',
+					backgroundColor: 'hsl(var(--success) / 0.2)',
 				}}
 				initial={{ x: 200, y: 200 }}
 				animate={{
@@ -49,50 +49,28 @@ export default function NotFound() {
 				}}
 			/>
 
-			<div className="relative z-10 text-center px-4">
-				<motion.h1
-					style={{
-						fontSize: 'clamp(6rem, 9rem, 10rem)',
-						fontWeight: 'bold',
-						color: 'var(--primary)',
-						marginBottom: '1rem',
-					}}
-					initial={{ opacity: 0, y: -50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-				>
-					404
-				</motion.h1>
-				<motion.h2
-					style={{
-						fontSize: 'clamp(1.5rem, 2rem, 2.5rem)',
-						fontWeight: 600,
-						marginBottom: '1.5rem',
-					}}
-					initial={{ opacity: 0, y: -20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.2 }}
-				>
-					Page Not Found
-				</motion.h2>
-				<motion.p
-					style={{
-						color: 'var(--muted-foreground)',
-						marginBottom: '2rem',
-						maxWidth: '28rem',
-						margin: '0 auto',
-					}}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.5, delay: 0.4 }}
-				>
-					The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-				</motion.p>
+			<div className="relative z-10 text-center px-4 flex flex-col items-center gap-2">
+				<motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+					<h1 className="text-[clamp(6rem,9rem,10rem)] font-bold text-primary">404</h1>
+				</motion.div>
+
+				<motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+					<h2 className="text-[clamp(1.5rem,2rem,2.5rem)] font-semibold">Page Not Found</h2>
+				</motion.div>
+
+				<div className="max-w-xl mx-auto mt-2">
+					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}>
+						<p className="text-muted-foreground">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+					</motion.div>
+				</div>
+
 				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}>
-					<Link href="/" className="inline-flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors">
-						<ArrowLeft className="w-4 h-4" />
-						<span>Back to Home</span>
-					</Link>
+					<div className="mt-8">
+						<Link href="/" className="inline-flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors">
+							<ArrowLeft className="w-4 h-4" />
+							<span>Back to Home</span>
+						</Link>
+					</div>
 				</motion.div>
 			</div>
 		</div>

@@ -96,7 +96,7 @@ export default function AboutPage() {
 					<div className="max-w-4xl mx-auto text-center">
 						<p className="text-lg mb-8 text-muted-foreground">Unlike traditional training programs, BrightWay Initiative directly employs young talent and immediately integrates them into our professional service delivery teams. Our youth employees work on actual client projects under the guidance of industry veterans, earning while they learn.</p>
 
-						<p className="text-lg mb-8 text-muted-foreground">This unique approach creates a win-win situation: our clients receive high-quality services at competitive rates, while our youth employees gain invaluable hands-on experience across diverse industries and project types—from business consultation and pitch deck creation to professional documentation and technical implementations.</p>
+						<p className="text-lg mb-8 text-muted-foreground">This unique approach creates a win-win situation: our clients receive high-quality services at competitive rates, while our youth employees gain invaluable hands-on experience across diverse industries and project types—from business consultation and pitch deck creation to professional document formatting and technical implementations.</p>
 
 						<p className="text-lg mb-12 text-muted-foreground">Through this immersive work experience, our youth employees develop both technical expertise and essential professional skills that prepare them for long-term career success, whether they continue with BrightWay or pursue opportunities elsewhere.</p>
 					</div>

@@ -1,50 +1,50 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Code2, Paintbrush, LineChart, Shield, Users2, Bot } from 'lucide-react';
+import { ArrowRight, Lightbulb, Presentation, LineChart, FileText, Users2, Bot } from 'lucide-react';
 
 const services = [
 	{
 		id: 1,
 		title: 'Business Consultation',
-		description: 'Custom web applications built with cutting-edge technologies to power your business.',
-		icon: <Code2 className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/web-development',
+		description: 'Strategic planning and operational improvement consultancy to drive business growth.',
+		icon: <Lightbulb className="w-8 h-8" strokeWidth={1.5} />,
+		link: '/services#business-consultation',
 	},
 	{
 		id: 2,
 		title: 'Pitch Deck Presentation',
-		description: 'Beautiful, intuitive interfaces that enhance user experience and engagement.',
-		icon: <Paintbrush className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/ui-ux-design',
+		description: 'Compelling presentations that help startups and established businesses secure funding and partnerships.',
+		icon: <Presentation className="w-8 h-8" strokeWidth={1.5} />,
+		link: '/services#pitch-deck',
 	},
 	{
 		id: 3,
 		title: 'Sales Presentation',
-		description: 'Strategic digital marketing solutions to grow your online presence and reach.',
+		description: 'High-impact sales materials and presentations designed to drive conversions and boost revenue.',
 		icon: <LineChart className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/digital-marketing',
+		link: '/services#sales-presentation',
 	},
 	{
 		id: 4,
-		title: 'Professional Documentation',
-		description: 'Comprehensive security solutions to protect your digital assets and data.',
-		icon: <Shield className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/cybersecurity',
+		title: 'Professional Formatting & Documentation',
+		description: 'Expert formatting services for academic, business, and technical documents.',
+		icon: <FileText className="w-8 h-8" strokeWidth={1.5} />,
+		link: '/services#documentation',
 	},
 	{
 		id: 5,
-		title: '',
+		title: 'IT Consulting',
 		description: 'Expert guidance to help you make informed technology decisions.',
 		icon: <Users2 className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/it-consulting',
+		link: '/services#it-consulting',
 	},
 	{
 		id: 6,
 		title: 'AI Solutions',
 		description: 'Harness the power of artificial intelligence to automate and innovate.',
 		icon: <Bot className="w-8 h-8" strokeWidth={1.5} />,
-		link: '/services/ai-solutions',
+		link: '/services#ai-solutions',
 	},
 ];
 

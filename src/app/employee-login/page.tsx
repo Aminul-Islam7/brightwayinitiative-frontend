@@ -109,7 +109,7 @@ export default function EmployeeLogin() {
 						border: '1px solid var(--border)',
 						overflow: 'hidden',
 						padding: '2rem',
-						boxShadow: 'var(--shadow-lg)'
+						boxShadow: 'var(--shadow-lg)',
 					}}
 					initial={{ y: 20, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}

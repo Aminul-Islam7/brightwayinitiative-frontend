@@ -22,9 +22,9 @@ const SectionTitle = ({ children, label }: { children: React.ReactNode; label: s
 );
 
 interface Benefit {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
+	icon: React.ReactNode;
+	title: string;
+	description: string;
 }
 
 const benefits: Benefit[] = [
@@ -50,19 +50,19 @@ const benefits: Benefit[] = [
 	},
 ];
 interface Position {
-  title: string;
-  department: string;
-  type: string;
-  location: string;
-  description: string;
+	title: string;
+	department: string;
+	type: string;
+	location: string;
+	description: string;
 }
 
 interface Position {
-  title: string;
-  department: string;
-  type: string;
-  location: string;
-  description: string;
+	title: string;
+	department: string;
+	type: string;
+	location: string;
+	description: string;
 }
 
 const positions: Position[] = [
@@ -163,15 +163,15 @@ export default function Page() {
 				<div className="container mx-auto px-4">
 					<SectionTitle label="Benefits">Why Work With Us</SectionTitle>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-			{benefits.map((benefit, index) => (
-			  <div key={benefit.title} className="p-6 rounded-xl bg-card/60 border border-border hover:border-primary/50 hover:bg-accent/40 transition-all duration-300 backdrop-blur-sm">
-				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-				  <div className="text-primary/80 mb-4">{benefit.icon}</div>
-				  <h3 className="text-xl font-semibold mb-2 text-foreground">{benefit.title}</h3>
-				  <p className="text-muted-foreground">{benefit.description}</p>
-				</motion.div>
-			  </div>
-			))}
+						{benefits.map((benefit, index) => (
+							<div key={benefit.title} className="p-6 rounded-xl bg-card/60 border border-border hover:border-primary/50 hover:bg-accent/40 transition-all duration-300 backdrop-blur-sm">
+								<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+									<div className="text-primary/80 mb-4">{benefit.icon}</div>
+									<h3 className="text-xl font-semibold mb-2 text-foreground">{benefit.title}</h3>
+									<p className="text-muted-foreground">{benefit.description}</p>
+								</motion.div>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
@@ -180,29 +180,29 @@ export default function Page() {
 				<div className="container mx-auto px-4">
 					<SectionTitle label="Opportunities">Open Positions</SectionTitle>
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-			{positions.map((position, index) => (
-			  <div key={position.title} className="group h-full p-6 rounded-xl bg-card/60 border border-border hover:border-primary/50 hover:bg-accent/40 transition-all duration-300 backdrop-blur-sm relative">
-				<motion.div initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-				  <div className="absolute top-6 right-6">
-					<span className="text-xs text-muted-foreground">{position.location}</span>
-				  </div>
-				  <div className="mb-4">
-					<h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors pr-20">{position.title}</h3>
-					<div className="mt-2">
-					  <div className="text-muted-foreground">{position.department}</div>
-					</div>
-				  </div>
-				  <p className="text-muted-foreground mb-6">{position.description}</p>
-				  <div className="flex items-center justify-between">
-					<div className="flex items-center text-primary font-medium">
-					  Apply Now
-					  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-					</div>
-					<span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full whitespace-nowrap">{position.type}</span>
-				  </div>
-				</motion.div>
-			  </div>
-			))}
+						{positions.map((position, index) => (
+							<div key={position.title} className="group h-full p-6 rounded-xl bg-card/60 border border-border hover:border-primary/50 hover:bg-accent/40 transition-all duration-300 backdrop-blur-sm relative">
+								<motion.div initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+									<div className="absolute top-6 right-6">
+										<span className="text-xs text-muted-foreground">{position.location}</span>
+									</div>
+									<div className="mb-4">
+										<h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors pr-20">{position.title}</h3>
+										<div className="mt-2">
+											<div className="text-muted-foreground">{position.department}</div>
+										</div>
+									</div>
+									<p className="text-muted-foreground mb-6">{position.description}</p>
+									<div className="flex items-center justify-between">
+										<div className="flex items-center text-primary font-medium">
+											Apply Now
+											<ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+										</div>
+										<span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full whitespace-nowrap">{position.type}</span>
+									</div>
+								</motion.div>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
